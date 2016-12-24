@@ -1,0 +1,14 @@
+html
+  head
+    title='Today in Baseball'
+    script(src='/jquery-3.1.1.min.js')
+    script(src='/Chart.bundle.min.js')
+    script(src='/app.js')
+  body
+    div
+      input(type='date', class='date-input', value='2016-08-31')
+      button(onclick='getData()')= 'Get'
+
+    div
+      canvas(class='event-graph', width='400', height='200')
+

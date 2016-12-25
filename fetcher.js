@@ -2,11 +2,20 @@
 const Mlbplays = require('mlbplays');
 const levelup = require('levelup');
 
-const db = levelup('./2014-mlbplays', { valueEncoding: 'json' });
+// 2014
+//const db = levelup('./2014-mlbplays', { valueEncoding: 'json' });
+//const START_DATE = new Date('3-31-2014');
+//const END_DATE = new Date('10-29-2014');
 
-const START_DATE = new Date('3-31-2014');
-//const END_DATE = new Date('4-9-2014');
-const END_DATE = new Date('10-29-2014');
+// 2015
+//const db = levelup('./2015-mlbplays', { valueEncoding: 'json' });
+//const START_DATE = new Date('4-05-2015');
+//const END_DATE = new Date('11-01-2015');
+
+// 2016
+const db = levelup('./2016-mlbplays', { valueEncoding: 'json' });
+const START_DATE = new Date('4-03-2016');
+const END_DATE = new Date('10-02-2016');
 
 const requests = [];
 for (let date = START_DATE; date <= END_DATE; date.setDate(date.getDate() + 1)) {

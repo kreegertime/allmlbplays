@@ -39,6 +39,28 @@ function createEventsGraph(events) {
   });
 }
 
+
+function createPitchTypeGraph(labels, types, pitch_types) {
+  const datasets = [];
+  for (let i = 0; i < types.length; i++) {
+    datasets.push({
+      label: labels[i],
+      data: pitch_types[types[i]],
+      backgroundColor: getRandomColor()
+    });
+  }
+
+  let ctx = document.querySelector('.event-graph');
+  let chart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: types,
+      datasets: datasets
+    },
+  });
+}
+
+
 function processData(response) {
   let events = {};
   response.forEach((p) => {
@@ -53,13 +75,9 @@ function processData(response) {
 
 function getData() {
   let input = document.querySelector('.date-input');
-  let date = new Date(input.value);
-  let request = {
-    month: date.getMonth() + 1,
-    day: date.getDate() + 1,
-    year: date.getFullYear()
+  var request = {
+    date: input.value
   };
-
   $.post('/plays', request, (response) => {
     processData(response);
   });

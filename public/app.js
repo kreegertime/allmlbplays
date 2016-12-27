@@ -40,27 +40,6 @@ function createEventsGraph(events) {
 }
 
 
-function createPitchTypeGraph(labels, types, pitch_types) {
-  const datasets = [];
-  for (let i = 0; i < types.length; i++) {
-    datasets.push({
-      label: labels[i],
-      data: pitch_types[types[i]],
-      backgroundColor: getRandomColor()
-    });
-  }
-
-  let ctx = document.querySelector('.event-graph');
-  let chart = new Chart(ctx, {
-    type: 'radar',
-    data: {
-      labels: types,
-      datasets: datasets
-    },
-  });
-}
-
-
 function processData(response) {
   let events = {};
   response.forEach((p) => {

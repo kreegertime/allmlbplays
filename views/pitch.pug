@@ -1,0 +1,13 @@
+html
+  head
+    title='Test'
+    script(src='/jquery-3.1.1.min.js')
+    script(src='/plotly-1.5.0.min.js')
+    script(src='/pitch.js')
+  body
+    div
+      input(type='date', class='date-input', value='2016-08-31')
+      button(onclick='getPitchData()')= 'Get'
+
+    div(id='myDiv')
+

@@ -1,6 +1,6 @@
 const levelup = require('levelup');
 
-const db2016 = levelup('./2016-mlbplays', { valueEncoding: 'json' });
+const db = levelup('./plays_db', { valueEncoding: 'json' });
 
 
 function processPitch(pitches, pitch) {
@@ -19,7 +19,7 @@ class Data {
 
   loadPlayData(date, callback) {
     // Hardcoding 2016 DB fore now.
-    db2016.get(date, (err, value) => {
+    db.get(date, (err, value) => {
       if (err) {
         throw (err);
       } else {
@@ -29,7 +29,7 @@ class Data {
   }
 
   loadPitchData(date, callback) {
-    db2016.get(date, (err, value) => {
+    db.get(date, (err, value) => {
       if (err) {
         throw (err);
       } else {

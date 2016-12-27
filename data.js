@@ -18,7 +18,6 @@ class Data {
   }
 
   loadPlayData(date, callback) {
-    // Hardcoding 2016 DB fore now.
     db.get(date, (err, value) => {
       if (err) {
         throw (err);

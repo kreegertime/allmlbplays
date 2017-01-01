@@ -39,8 +39,11 @@ function getPitchData() {
   var request = {
     date: input.value
   };
-  $.post('/pitch_data', request, (response) => {
-    processPitchData(response);
+  //$.post('/pitch_data', request, (response) => {
+  //  processPitchData(response);
+  //});
+  $.post('/pitch_fastball_data', request, (response) => {
+    console.log('response', response);
   });
 }
 
@@ -50,6 +53,7 @@ function processPitchData(pitches) {
   let types = [];
   let pitch_types = {};
 
+  console.log(pitches);
   pitches.forEach((pitch) => {
     if (typeof pitch_types[pitch.type] == 'undefined') {
       labels.push(pitch.description);

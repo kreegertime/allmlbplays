@@ -26,6 +26,16 @@ app.post('/pitch_data', (req, res) => {
   });
 });
 
+app.post('/pitch_fastball_data', (req, res) => {
+  data.loadFastballMonthData((data) => {
+    console.log('data', data);
+    res.send({ data: data });
+  });
+//  data.loadFastballData(req.body.date, (data) => {
+//    res.send({ speed_avg: data });
+//  });
+});
+
 app.post('/play_data', (req, res) => {
   data.loadPlayData(req.body.date, (data) => {
     res.send(data);

@@ -57,7 +57,7 @@ function getData() {
   var request = {
     date: input.value
   };
-  $.post('/plays', request, (response) => {
+  $.post('/play_data', request, (response) => {
     processData(response);
   });
 }
